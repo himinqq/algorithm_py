@@ -1,19 +1,15 @@
 
 n,m = map(int,input().split())
+arr = [0]* m
 numbers = list(map(int,input().split()))
-
 numbers.sort()
-arr = [0] * m
 
-def backtrack(k):
+def backtrack(start,k):
     if k == m:
         print(*arr)
         return
-    for i in range(n):
-       arr[k] = numbers[i]
-       backtrack(k+1)
+    for i in range(start,n):
+        arr[k] = numbers[i]
+        backtrack(i,k+1)
 
-backtrack(0)
-
-
-
+backtrack(0,0)
